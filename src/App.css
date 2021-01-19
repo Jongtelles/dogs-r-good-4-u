@@ -6,53 +6,142 @@
 }
 
 html {
+  height: 100%;
   font-size: 10px;
-  line-height: 1.5;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
-  height: 100%;
 }
 
 body {
   font-family: "Hachi Maru Pop", cursive;
   margin: 0;
   font-size: 1.6rem;
-  background: linear-gradient(#2f9395, #b03c94, #a6206a, #200d3a);
-  background-repeat: no-repeat;
   color: whitesmoke;
 }
 
-.App {
-  text-align: center;
+h1 {
+  margin-top: 0.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
+.App {
+  background: linear-gradient(
+    #7b26cf,
+    #252cf3c5,
+    rgba(37, 216, 243, 0.773),
+    #200d3a
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dog-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  z-index: 1;
+}
+
+.dog-img {
+  height: 100%;
+  margin: 2rem 0;
+  border: 10px solid whitesmoke;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.dog-trick {
+  position: absolute;
+  top: -60%;
+  width: 100%;
+  z-index: 2;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 35%);
+  margin: 0;
+}
+
+.dog-btn-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.dog-select-container {
+  padding: 0 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 35%);
+}
+
+.dog-select-container select {
+  margin: 1rem;
+}
+
+.dog-btn {
+  display: block;
+  width: 17.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0.75rem;
+  background: rgb(55, 7, 89);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 5px 5px 10px cornflowerblue;
+  color: wheat;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+
+.dog-btn:hover {
+  color: #10d7ae;
+  background: rgb(255, 13, 94);
+  box-shadow: -5px 5px 10px #10d7ae;
+}
+
+.dog-btn:disabled {
+  cursor: not-allowed;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* footer */
+.footer {
+  padding: 0.75rem;
+  min-height: 2.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: static;
+  bottom: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.footer--blurb {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
+.footer--copyright {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}
+
+/* animation keyframes */
+@keyframes rollover {
   from {
     transform: rotate(0deg);
   }
@@ -61,27 +150,50 @@ body {
   }
 }
 
-.dog-img-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 47rem;
+@keyframes reverse-rollover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
-.dog-img {
-  border-radius: 1rem;
-  max-width: 90vw;
-  max-height: 50rem;
+.rollover-🔁 {
+  animation-name: rollover;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
 }
 
-.dog-btn {
-  border-radius: 1rem;
-  padding: 1rem;
-  background: rgb(55, 7, 89);
-  text-transform: uppercase;
-  font-weight: bold;
-  box-shadow: 5px 5px 10px cornflowerblue;
-  color: wheat;
-  cursor: pointer;
+.rollover-🔄 {
+  animation-name: reverse-rollover;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
+}
+
+.lie-down-👇 {
+  transform: translateY(80%);
+}
+
+.up-🙌 {
+  transform: scale(1.75) translateY(0);
+}
+
+.play-dead-💀 {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 500px) {
+  .App {
+    overflow: scroll;
+  }
+
+  .dog-img-container {
+    height: 40rem;
+  }
+
+  .dog-img {
+    width: 100%;
+    height: 100%;
+  }
 }

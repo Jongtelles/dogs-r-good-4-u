@@ -1,10 +1,17 @@
-function DogImage({ src, txt }) {
+function DogImage({ src, tricking, trick }) {
   return (
     <>
       <div className='dog-img-container'>
-        <img className='dog-img' src={src} alt='random dog img' />
+        {src ? (
+          <img
+            className={`dog-img ${tricking ? trick : ""}`}
+            src={src}
+            alt='A random dog, usually a very cute & good one'
+          />
+        ) : (
+          "🐕Fetching...🐕"
+        )}
       </div>
-      <h2>{txt}</h2>
     </>
   );
 }
