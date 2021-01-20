@@ -140,6 +140,24 @@ h1 {
   font-size: 1.2rem;
 }
 
+.gh--link {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-image: url(./GitHub-Mark-Light-32px.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gh--link span {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* animation keyframes */
 @keyframes rollover {
   from {
