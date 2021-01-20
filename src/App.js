@@ -16,7 +16,7 @@ function App() {
     trickList[Math.floor(Math.random() * trickList.length)]
   );
   const [tricking, setTricking] = useState(false);
-  const selectRef = useRef();
+  const selectRef = useRef(null);
 
   useEffect(() => {
     console.log("🐶🐕​​🐶​🐩​🐶");
@@ -81,12 +81,12 @@ function App() {
           {isRunning ? "Stop" : "Show Me Random Dogs"}
         </button>
         <div className='dog-select-container'>
-          <label>
+          <label for='dog--select'>
             See a dog every
             <select
               ref={selectRef}
-              name=''
-              id=''
+              name='dog-select'
+              id='dog--select'
               onChange={e => {
                 setDelay(e.target.value);
               }}
